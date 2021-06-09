@@ -47,10 +47,8 @@ public class BackupListener implements ActionListener {
          
          if (returnVal == JFileChooser.APPROVE_OPTION) {
              //如果保存的文件名没有以.sql结尾，自动加上.sql
-             System.out.println(file);
              if(!file.getName().toLowerCase().endsWith(".sql"))
                  file = new File(file.getParent(),file.getName()+".sql");
-             System.out.println(file);
               
             try {
                 MysqlUtil.backup(mysqlPath, file.getAbsolutePath());
